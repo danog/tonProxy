@@ -1,0 +1,18 @@
+{
+    "name": "danog/ton-proxy",
+    "description": "Websocket proxy for the TON blockchain ADNL protocol",
+    "minimum-stability": "dev",
+    "type": "project",
+    "require": {
+        "amphp/websocket-server": "dev-master as v2.0.0-rc1",
+        "amphp/http-server-static-content": "dev-master",
+        "amphp/http-server-router": "dev-master",
+        "amphp/log": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Daniil Gentili",
+            "email": "daniil@daniil.it"
+        }
+    ]
+}

@@ -5,9 +5,9 @@
     "type": "project",
     "require": {
         "amphp/websocket-server": "dev-master as v2.0.0-rc1",
-        "amphp/http-server-static-content": "dev-master",
-        "amphp/http-server-router": "dev-master",
-        "amphp/log": "dev-master"
+        "amphp/http-server-static-content": "^1",
+        "amphp/http-server-router": "^1",
+        "amphp/log": "^1"
     },
     "authors": [
         {

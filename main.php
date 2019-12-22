@@ -24,10 +24,8 @@ use function Amp\Socket\connect;
 
 require __DIR__.'/vendor/autoload.php';
 
-$ip = '127.0.0.1'; // Connect to local TON validator
-$ip = 'ton.daniil.it';
-$port = 9999;
-
+$ip = '67.207.74.182';
+$port = 4924;
 
 $logHandler = new StreamHandler(getStdout());
 $logHandler->setFormatter(new ConsoleFormatter);
@@ -35,7 +33,7 @@ $logger = new Logger('server');
 $logger->pushHandler($logHandler);
 
 
-$websocket = new Websocket(new class($ip, $port, $logger) implements ClientHandler {
+class TONHandler implements ClientHandler {
     /**
      * TON validator URI.
      *
@@ -171,15 +169,18 @@ $websocket = new Websocket(new class($ip, $port, $logger) implements ClientHandl
             $socket->close();
         }
     }
-});
+}
+
+
 
 $sockets = [
-    Socket\listen('127.0.0.1:80'),
-    Socket\listen('[::1]:80'),
+    Socket\listen('0.0.0.0:80'),
+    Socket\listen('[::]:80'),
 ];
 
 $router = new Router;
-$router->addRoute('GET', '/ton', $websocket);
+$router->addRoute('GET', '/testnet', new Websocket(new TONHandler($ip, $port, $logger)));
+$router->addRoute('GET', '/testnetDebug', new Websocket(new TONHandler('127.0.0.1', 9999, $logger)));
 $router->setFallback(
     new CallableRequestHandler(
         function () {

@@ -2,7 +2,7 @@
 
 Websocket proxy for the TON blockchain ADNL protocol based on AMPHP.
 
-To be used with [madelineTon.js] for secure browser-side communication with the [TON blockchain](https://test.ton.org).
+To be used with [madelineTon.js](https://github.com/danog/madelineTon.js) for secure browser-side communication with the [TON blockchain](https://test.ton.org).
 
 
 
